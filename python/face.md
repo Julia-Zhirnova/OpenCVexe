@@ -23,3 +23,4 @@ https://tproger.ru/translations/opencv-python-guide/#install
 
 Дополнительно:
 Можно распознать лица на видео
+![image](https://user-images.githubusercontent.com/52165649/143004490-fa6fd6f3-51fb-40c4-979d-6e2b595b1b27.png)
