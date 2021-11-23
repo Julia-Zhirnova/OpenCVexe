@@ -23,6 +23,9 @@ def viewImage(image, name_of_window):
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
+import numpy as np
+import cv2
+
 if __name__ == '__main__':
     locale.setlocale(category=locale.LC_ALL, locale="Russian")
     image_path = "./people.jpg"
@@ -42,3 +45,34 @@ if __name__ == '__main__':
     for (x, y, w, h) in faces:
         cv2.rectangle(image, (x, y), (x+w, y+h), (255, 255, 0), 2)
     viewImage(image,faces_detected)
+
+    import numpy as np
+    import cv2
+
+    cap = cv2.VideoCapture(0)
+
+    while (True):
+        ret, frame = cap.read()
+        #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+        cv2.imshow('Video', frame)
+        #cv2.imshow('frame',gray)
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        faces = face_cascade.detectMultiScale(
+            gray,
+            scaleFactor=1.1,
+            minNeighbors=5,
+            minSize=(10, 10)
+        )
+        faces_detected = "Лиц обнаружено: " + format(len(faces))
+        print(faces_detected)
+        # Рисуем квадраты вокруг лиц
+        for (x, y, w, h) in faces:
+            cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 255, 0), 2)
+        #viewImage(image, faces_detected)
+        cv2.imshow('frame', frame)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
