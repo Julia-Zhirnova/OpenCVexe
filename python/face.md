@@ -20,3 +20,6 @@ File - Settings - Project Interpretator - шестеренка(add) - new enviro
 Источники:
 https://habr.com/ru/post/260741/
 https://tproger.ru/translations/opencv-python-guide/#install
+
+Дополнительно:
+Можно распознать лица на видео
